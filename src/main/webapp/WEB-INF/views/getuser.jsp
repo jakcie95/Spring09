@@ -5,10 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>getuser.jsp<br>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 function getUsers(){
 	$.ajax({
@@ -16,7 +15,7 @@ function getUsers(){
 		success : function(list){
 			let content = ""
 			for(i=0; i < list.length; i++){
-				content +="<b>아이디:</b>"+list[i].name+"님<br>"
+				content +=$("<b>아이디:</b>")+list[i].name+"님<br>"
 				content +="<b>나이:</b>"+list[i].age+"살<hr>"
 			}
 			/*
@@ -26,19 +25,22 @@ function getUsers(){
 			content +="<b>아이디:</b>"+list[1].name+"님<br>"
 			content +="<b>나이:</b>"+list[1].age+"살<hr>"
 			*/
-			//$("users").text(content)
-			//$("users").html(content)
-			$("users").append(content)
+			$('#users').text(content);
+			$('#users').html(content);
+			
 			console.log(list)
+			console.log(content)
+			
 			
 		}
 	})
 }
 function userInfo(){
 	$.ajax({
-		url : "user?id="+$("userId").val() ,
+		url : "user?&id="+$("userId").val() ,
 				type:"get" , dataType :"json",
 		success : function(data){
+			console.log(data)
 			content= ""
 			content +="<b>아이디:</b>"+data.name+"님<br>"
 			content +="<b>나이:</b>"+data.age+"살<hr>"
@@ -54,7 +56,6 @@ function userInfo2(){
 			content= ""
 			content +="<b>아이디:</b>"+data.name+"님<br>"
 			content +="<b>나이:</b>"+data.age+"살<hr>"
-			$("#users").html(content)
 		}
 	})
 }
@@ -107,10 +108,14 @@ function membership(){
 <span id="user"></span>
 <hr>
 <button type="button" onclick="getUsers()">전체 목록</button>
+<br>
+<b id="users">전체목록</b>
 <hr>
 <input type="text" id="userId"><br>
 <input type="button" onclick="userInfo()" value="검색">
 <input type="button" onclick="userInfo2()" value="검색2">
+
+<b id="user"></b>
 <hr>
 검색 아이디 : <input type="text" id="name"><br>
 수정 나이 : <input type="text" id="age"><br>

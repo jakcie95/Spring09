@@ -5,32 +5,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script type="text/javascript">
 function getFunc(){
 	$.ajax({
 		url : "rest", type : "get", dataType : "json",
-		success:function(data){ $("#lb").text(data.key)}
+		success:function(data){ 
+			console.log(data)
+			$("#ld").text(data.key)}
 	})
 }
 function postFunc(){
 	$.ajax({
 		url : "rest", type : "post", dataType : "json",
-		success:function(data){ $("#lb").text(data.key)}
+		success:function(data){ 
+			console.log(data)
+			$("#ld").text(data.key)}
 	})
 }
 function putFunc(){
 	$.ajax({
 		url : "rest", type : "put", dataType : "json",
-		success:function(data){ $("#lb").text(data.key)}
+		success:function(data){ 
+			console.log(data)
+			$("#ld").text(data.key)}
 	})
 }
 function deleteFunc(){
 	$.ajax({
 		url : "rest", type : "delete", dataType : "json",
-		success:function(data){ $("#lb").text(data.key)}
+		success:function(data){ 
+			console.log(data)
+			$("#ld").text(data.key)}
 	})
 }
 </script>

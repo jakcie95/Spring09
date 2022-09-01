@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>ajax03.jsp<br>
+<body>ajax04.jsp<br>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-function ajax03(){
+function ajax04(){
 	var n = document.getElementById("name").value;
 	var a = $("#age").val()
 	var addr = $("#addr").val()
@@ -23,7 +23,7 @@ function ajax03(){
 		contentType : "application/json; charset=utf8",
 		dataType : "json", //return type
 		success : function(data){
-			$("label").text(data.name+", "+data.age )
+			$("label").text(data.name+", "+data.age+", "+data.addr )
 			console.log("data =>",data)
 		},error : function(){
 			alert('문제 발생!!!')
@@ -35,7 +35,7 @@ function ajax03(){
 	name : <input type="text" id="name"><br>
 	age : <input type="text" id="age"><br>
 	addr : <input type="text" id="addr"><br>
-	<input type="button" onclick="ajax03()" value="전송">
+	<input type="button" onclick="ajax04()" value="전송">
 	
 	<br><label id="label"></label>
 </body>

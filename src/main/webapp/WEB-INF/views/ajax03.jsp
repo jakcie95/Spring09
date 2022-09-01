@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>ajax03.jsp<br>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <script type="text/javascript">
 function ajax03(){
 	var n = document.getElementById("name").value;
@@ -15,9 +16,11 @@ function ajax03(){
 	var form = {name:n, age:a}
 	console.log(form)
 	console.log( typeof form )
+	console.log(JSON.stringify(form))
 	$.ajax({
-		url : "ajax_result03", type:"post",
-		data : JSON.stringify(form) , //서버로 보낼 데이터
+		url : "ajax_result03",
+		type:"post",
+		data : JSON.stringify(form), //서버로 보낼 데이터
 		 //서버로 보낼 데이터 타입
 		contentType : "application/json; charset=utf8",
 		dataType : "json", //return type
